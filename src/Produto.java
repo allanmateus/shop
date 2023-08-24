@@ -5,12 +5,12 @@ public class Produto {
 	static ArrayList<Produto> produtos = new ArrayList<Produto>();
 
 	public int id;
-	public int ean;
+	public String ean;
 	public String descricao;
 	public String marca;
 	public double valor;
 	
-	public Produto(int ean, String descricao, String marca, double valor) {
+	public Produto(String ean, String descricao, String marca, double valor) {
 		this.id = Produto.contProduto++;
 		this.ean = ean;
 		this.descricao = descricao;
@@ -18,20 +18,25 @@ public class Produto {
 		this.valor = valor;
 	}
 	
-	public static ArrayList<Produto> cadastraProduto(int ean, String descricao, String marca, double valor) {
+	public static void cadastraProduto(String ean, String descricao, String marca, double valor) {
 		Produto novoProduto = new Produto(ean, descricao, marca, valor);
 		produtos.add(novoProduto);
-		return produtos;
 	}
 
 	public static void listaProdutos() {
 		for(Produto produto : produtos) {
-			System.out.println(	
+			System.out.println
+			(	
+				" Id: " + produto.id +
 				" EAN: " + produto.ean + 
 				" Descrição: " + produto.descricao +
 				" Marca: " + produto.marca +
 				" Valor: R$ " + produto.valor
 			);	
 		}
+	}
+	
+	public void removeProduto() {
+		
 	}
 }
